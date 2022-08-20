@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="dashboard">
         <h3 class="subheading grey--text my-3">DashBoard Page</h3>
 
         <v-container class="my-5">

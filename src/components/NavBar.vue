@@ -1,20 +1,32 @@
 <template>
-    <div >
+    <div>
         <v-app-bar color="cyan darken-2" dark>
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-            
+
             <v-toolbar-title>
                 <span class="font-weight-light">Todo</span>
                 <span>Ninja</span>
             </v-toolbar-title>
-           
-            <v-spacer></v-spacer>
 
+            <v-spacer></v-spacer>
+            <!-- drop down menu -->
+            <v-menu elevation="0" offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                    <v-btn text v-bind="attrs" v-on="on" class="px-6">
+                        <v-icon left>mdi-chevron-down</v-icon>
+                        Menu
+                    </v-btn>
+                </template>
+                <v-list>
+                    <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
+                        <v-list-item-title>{{ link.text }}</v-list-item-title>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
             <v-btn text color="white">
                 <span>Sign Out</span>
                 <v-icon right>mdi-logout</v-icon>
             </v-btn>
-            
         </v-app-bar>
 
         <v-navigation-drawer v-model="drawer" app class="grey darken-3">
@@ -25,9 +37,12 @@
                     </v-avatar>
                     <p class="white--text subheading mt-4">Sachin Prasad</p>
                 </v-flex>
+                <v-flex class="my-2 ">
+                    <PopUp />
+                </v-flex>
             </v-layout>
             <v-list>
-                <v-list-item-group v-model="group" active-class="white--text ">
+                <v-list-item-group active-class="white--text ">
                     <v-list-item v-for="link in links" :key="link.text" router :to="link.route">
                         <v-list-item-action>
                             <v-icon color="white">mdi-{{ link.icon }}</v-icon>
@@ -45,7 +60,12 @@
 </template>
 
 <script>
+import PopUp from './PopUp.vue';
+
 export default {
+    components: {
+        PopUp,
+    },
     data() {
         return {
             drawer: false,
