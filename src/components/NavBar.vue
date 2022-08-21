@@ -1,5 +1,6 @@
 <template>
     <div>
+        <SnackBar/>
         <v-app-bar color="cyan darken-2" dark>
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
@@ -61,10 +62,12 @@
 
 <script>
 import PopUp from './PopUp.vue';
+import SnackBar from './SnackBar.vue'
 
 export default {
     components: {
         PopUp,
+        SnackBar
     },
     data() {
         return {
@@ -79,4 +82,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+</style>

@@ -16,16 +16,12 @@
                 </v-card-actions>
                 <v-form class="px-7" ref="form">
                     <v-text-field
-                        rounded
-                        outlined
                         label="Title"
                         v-model="title"
                         append-icon="mdi-folder"
                         :rules="inputRules"
                     ></v-text-field>
                     <v-textarea
-                        rounded
-                        outlined
                         label="Information"
                         rows="1"
                         v-model="content"
@@ -38,8 +34,6 @@
                                 <template v-slot:activator="{ on, attrs }">
                                     <v-text-field
                                         class="mb-3"
-                                        rounded
-                                        outlined
                                         :value="due"
                                         clearable
                                         label="Pick date"
@@ -64,6 +58,8 @@
 </template>
 
 <script>
+
+
 export default {
     name: 'PopUp',
     data() {
@@ -80,10 +76,10 @@ export default {
     methods: {
         submit() {
             if (this.$refs.form.validate()) {
-                console.log(this.title, this.content);
+                
                 this.title = '';
                 this.content = '';
-                this.due = null
+                this.due = null;
                 this.dialog = false;
             }
         },

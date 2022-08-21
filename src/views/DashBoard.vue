@@ -15,13 +15,13 @@
                 </v-tooltip>
                 <v-tooltip top>
                     <template v-slot:activator="{ on, attrs }">
-                <v-btn small text color="grey" @click="sortBy('person')" v-bind="attrs" v-on="on">
-                    <v-icon left small>mdi-account</v-icon>
-                    <span class="caption text-lowercase">by person</span>
-                </v-btn>
-                </template>
+                        <v-btn small text color="grey" @click="sortBy('person')" v-bind="attrs" v-on="on">
+                            <v-icon left small>mdi-account</v-icon>
+                            <span class="caption text-lowercase">by person</span>
+                        </v-btn>
+                    </template>
                     <span class="caption">Sort projects by person</span>
-                    </v-tooltip>
+                </v-tooltip>
             </v-layout>
 
             <v-card tile elevation="0" class="px-5 py-4" v-for="project in projects" :key="project.title">
